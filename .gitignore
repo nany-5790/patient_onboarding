@@ -226,3 +226,5 @@ __marimo__/
 Thumbs.db
 .idea/
 patients/**/migrations/
+db.sqlite3
+patients/**/db.sqlite3

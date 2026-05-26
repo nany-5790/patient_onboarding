@@ -26,7 +26,7 @@ class Patient(models.Model):
         related_name='patients',
     )
 
-    # PHI — en producción irían encriptados
+    # PHI — in production, these would be encrypted fields or stored in a separate service
     full_name = models.CharField(max_length=200)
     date_of_birth = models.DateField()
     email = models.EmailField(unique=True)
@@ -34,7 +34,7 @@ class Patient(models.Model):
 
     class Meta:
         indexes = [
-            # Índice parcial — solo pacientes activos
+            # Partial index for active patients.
             models.Index(
                 fields=['status', '-created_at'],
                 name='idx_patients_status_created',

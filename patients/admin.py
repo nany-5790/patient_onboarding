@@ -29,3 +29,15 @@ class AuditLogAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False  # nobody can delete them
+
+
+@admin.register(OnboardingRequest)
+class OnboardingRequestAdmin(admin.ModelAdmin):
+    list_display = ['idempotency_key', 'patient', 'created_at']
+    readonly_fields = ['idempotency_key', 'patient', 'created_at']
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False

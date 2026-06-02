@@ -38,6 +38,10 @@ def _notify_patient(patient_id, message, trace_id=""):
 
 
 # ── Celery task principal ──────────────────────────────────────────────────
+# TO ACTIVATE: in appointments/views.py, uncomment lines 40-42 inside book()
+# and add at the top: from appointments.tasks import send_confirmation
+# PARA ACTIVAR: en appointments/views.py, descomenta las líneas 40-42 dentro de book()
+# y agrega al inicio del archivo: from appointments.tasks import send_confirmation
 
 @shared_task(bind=True, max_retries=3, default_retry_delay=5,
              name="appointments.send_confirmation")

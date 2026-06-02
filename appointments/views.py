@@ -1,14 +1,13 @@
+from core.observability import logger, metrics, trace
+from appointments.exceptions import DoubleBookingError, InvalidTransitionError
+from appointments.serializers import (
+    AppointmentCreateSerializer, AppointmentSerializer, TransitionSerializer
+)
+from appointments.models import Appointment
 import uuid
 from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-
-from appointments.models import Appointment
-from appointments.serializers import (
-    AppointmentCreateSerializer, AppointmentSerializer, TransitionSerializer
-)
-from appointments.exceptions import DoubleBookingError, InvalidTransitionError
-from core.observability import logger, metrics, trace
 
 
 class AppointmentViewSet(viewsets.GenericViewSet):

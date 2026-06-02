@@ -1,5 +1,6 @@
 import uuid
 from django.db import models, transaction
+from django.utils import timezone
 from django.contrib.auth.models import User
 from appointments.exceptions import DoubleBookingError, InvalidTransitionError
 
